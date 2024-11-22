@@ -1,0 +1,86 @@
+arecord -l
+
+nano ~/.asoundrc
+
+pcm.capture {
+    type plug
+    slave {
+        pcm "hw:3,0"
+        rate 16000
+        format S16_LE
+        channels 1
+    }
+}
+
+sudo nano /etc/asound.conf
+pcm.!default {
+    type plug
+    slave.pcm "plughw:3,0"
+}
+
+
+
+
+
+
+#…or create a new repository on the command line
+
+echo "# Speechy_windows" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
+git push -u origin main
+
+#…or push an existing repository from the command line
+
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
+git branch -M main
+git push -u origin main
+
+
+#If the origin remote is incorrect or outdated, you can update it:
+git remote set-url origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
+
+
+#If you want to completely reset the origin, remove it and then add it again:
+git remote remove origin
+
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
+
+
+#Verify the Changes
+git remote -v
+
+#Large Files: If you have files larger than 100MB, Git will reject them. Use Git LFS for large files.
+git lfs install
+git lfs track "*.largefileextension"
+git init
+git add .
+git commit -m "Initial commit with folders"
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
+git push -u origin main
+git push -u origin master
+
+git rm -r --cached Software/IA/text_to_speech/fastText
+git commit -m "Update .gitignore and stop tracking fastText folder"
+git check-ignore -v Software/IA/text_to_speech/fastText
+
+#Correct Command in PowerShell
+Get-ChildItem -Force
+Get-ChildItem -Force | Where-Object { $_.Name -eq '.gitignore' }
+
+
+
+#warning: in the working copy of 'Software/IA/text_to_speech/text_in_out/speech_to_text_output_file.txt', LF will be replaced by CRLF the next time Git touches it
+'''
+The warning you’re seeing is related to line endings in text files, which can differ between operating systems:
+
+LF (Line Feed): Used by Unix-based systems like Linux and macOS.
+CRLF (Carriage Return + Line Feed): Used by Windows.
+Git automatically handles line-ending conversions when files are checked out or committed to ensure compatibility across different platforms.
+'''
+
+
+git commit -m "Update Note_book.txt"
