@@ -1,0 +1,15 @@
+void setup() {
+  Serial.begin(9600); // Initialize serial communication at a baud rate of 9600
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String input = Serial.readStringUntil('\n'); // Read input until newline
+    input.trim(); // Remove any leading or trailing whitespace
+
+    if (input == "s" || input == "S") {
+      // Your code to handle "s" input
+      Serial.println("You pressed S");
+    }
+  }
+}
