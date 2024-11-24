@@ -13,3 +13,38 @@ void loop() {
     }
   }
 }
+
+
+Additional Notes
+
+#Install the Required Core
+arduino-cli core install arduino:avr
+
+#Verify Installation
+arduino-cli core list
+
+
+#Retry the Build Command
+arduino-cli compile --fqbn arduino:avr:uno /path/to/your/sketch
+
+#Upload the Sketch (Optional)
+arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:uno /path/to/your/sketch
+
+
+arduino-cli version upgrade
+
+
+#Corrected Command
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
+
+
+#Double-check the Port
+arduino-cli board list
+
+
+#Verify the Connection with USB
+sudo arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
+
+
+
+
