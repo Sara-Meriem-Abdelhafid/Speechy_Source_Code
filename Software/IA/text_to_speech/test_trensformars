@@ -1,0 +1,20 @@
+from transformers import pipeline
+
+# Load the Arabic question-answering model
+qa_pipeline = pipeline("question-answering", model="deepset/roberta-base-squad2")
+
+def generate_answer(input_question, context):
+    result = qa_pipeline({
+        'context': context,
+        'question': input_question
+    })
+    return result['answer']
+
+# Example Usage
+context = """فرنسا هي دولة في أوروبا الغربية تعرف بعاصمتها باريس. فرنسا هي واحدة من أكبر وأهم الدول في العالم
+        من حيث التاريخ والثقافة. """
+input_question = "ما هي عاصمة فرنسا؟"
+output_answer = generate_answer(input_question, context)
+
+print(f"السؤال: {input_question}")
+print(f"الإجابة: {output_answer}")
