@@ -26,3 +26,23 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer # type: ignore
 # Ensure pydub can find the ffmpeg/ffprobe binary
 AudioSegment.converter = "ffmpeg"  # path to ffmpeg binary
 
+
+
+'''
+import torch
+print("PyTorch:", torch.__version__)  # If PyTorch is installed
+
+import tensorflow as tf
+print("TensorFlow:", tf.__version__)  # If TensorFlow is installed
+
+from flax import linen as nn
+print("Flax installed")  # If Flax is installed
+
+import pygame
+pygame.mixer.init()
+pygame.mixer.music.load("your-audio-file.mp3")
+pygame.mixer.music.play()
+
+while pygame.mixer.music.get_busy():
+    pygame.time.Clock().tick(10)
+'''
