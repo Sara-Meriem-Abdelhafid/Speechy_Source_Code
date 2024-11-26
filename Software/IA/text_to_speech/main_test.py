@@ -2,6 +2,10 @@ import speech_recognition as sr
 import playsound
 import os
 
+
+
+
+
 # Helper function to record speech and convert it to text
 def record_speech_to_text(chosen_microphone, c, language='en'):
     recognizer = sr.Recognizer()

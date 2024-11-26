@@ -551,6 +551,8 @@ git add .
 git commit -am " new commit"
 git config --global user.email "sara23.abdelhafid@google.com"
 git config --global user.name "Sara from windows"
+git config --global user.name "Sara"
+
 git push origin master 
 wget https://raw.githubusercontent.com/Sara-Meriem-Abdelhafid/New_Speechy_Source_Code/main/test_mic.py
 git remote add origin https://github.com/Sara-Meriem-Abdelhafid/New_Speechy_Source_Code.git
