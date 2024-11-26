@@ -1,0 +1,38 @@
+Raspberry Pi
+
+raspberrypi4.local
+
+ping raspberrypi4.local
+ssh -l pi raspberrypi4.local
+ssh pi@raspberrypi4.local 
+hostname: pi
+password: raspberry
+
+
+source env/bin/activate 
+cd /home/pi/Project/Main_Code 
+python main.py
+
+Network: MyNetwork
+Password : abdelhafid2023A@abd
+
+/Volumes/boot
+vim wpa__supplicant.conf  
+  
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=DZ
+
+network={
+    ssid="MyNetwork"
+    psk="abdelhafid2023A@abd"
+}
+
+touch ssh
+touch /Volumes/bootfs/ssh     
+
+sudo vim /etc/hosts 
+ssh-keygen -f ~/.ssh/known_hosts  
+vim wpa__supplicant.conf   
+ cd /Volumes/bootfs   
+cd /Volumes/bootfs  

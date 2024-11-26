@@ -1,0 +1,187 @@
+Raspberry Pi
+
+raspberrypi4.local
+
+ping raspberrypi4.local
+ssh -l pi raspberrypi4.local
+ssh pi@raspberrypi4.local 
+hostname: pi
+password: raspberry
+
+
+nano /Volumes/bootfs/config.txt  
+Add :
+#Forces the HDMI output to be enabled even if a display is not detected.
+hdmi_force_hotplug=1
+
+#Specify the resolution and refresh rate of the HDMI display (hdmi_group=1: Sets the display to CEA mode (used for TVs), hdmi_mode=16: Sets the resolution to 1080p at 60Hz. You can adjust the mode based on your display.):
+hdmi_group=1
+hdmi_mode=16
+
+
+#Keep HDMI powered on even when the Raspberry Pi is idle:
+hdmi_blanking=1
+
+#If the display still doesn’t work, enable HDMI safe mode:
+hdmi_safe=1
+
+#Remove black borders around the screen:
+#disable_overscan=1
+
+source env/bin/activate 
+cd /home/pi/Project/Main_Code 
+python main.py
+
+Network: MyNetwork
+Password : abdelhafid2023A@abd
+
+/Volumes/boot
+vim wpa__supplicant.conf  
+  
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=DZ
+
+network={
+    ssid="MyNetwork"
+    psk="abdelhafid2023A@abd"
+}
+
+touch ssh
+touch /Volumes/bootfs/ssh     
+
+sudo vim /etc/hosts 
+ssh-keygen -f ~/.ssh/known_hosts  
+vim wpa__supplicant.conf   
+ cd /Volumes/bootfs   
+cd /Volumes/bootfs  
+
+
+
+
+arecord -l
+
+nano ~/.asoundrc
+
+pcm.capture {
+    type plug
+    slave {
+        pcm "hw:3,0"
+        rate 16000
+        format S16_LE
+        channels 1
+    }
+}
+
+sudo nano /etc/asound.conf
+pcm.!default {
+    type plug
+    slave.pcm "plughw:3,0"
+}
+
+source env/bin/activate
+sudo apt-get update
+sudo apt-get install python3-venv  # Install venv module for Python 3
+python3 -m venv env
+source env/bin/activate
+
+pip install langid
+pip install scikit-learn
+sudo apt-get install portaudio19-dev python3-pyaudio
+pip install pyaudio
+pip install fasttext
+pip install playsound
+pip install gtts
+pip install librosa
+pip install matplotlib
+pip install langdetect
+pip install pydub
+pip install pyttsx3
+pip install pyttsx4
+pip install speechrecognition
+pip install SpeechRecognition
+pip install translate
+pip install ipython
+pip install transformers
+wget https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin
+pip install pygobject
+sudo apt-get update
+sudo apt-get install python3-gst-1.0
+
+
+
+git init
+git add .
+git commit -am " new commit"
+git config --global user.email "sara23.abdelhafid@google.com"
+git config --global user.name "Sara from windows"
+git push origin master 
+wget https://raw.githubusercontent.com/Sara-Meriem-Abdelhafid/New_Speechy_Source_Code/main/test_mic.py
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/New_Speechy_Source_Code.git
+git push origin windows
+
+
+review the commit history on both branches:
+For the local branch:
+git log --oneline
+
+
+For the remote branch:
+git fetch
+git log origin/main --oneline
+
+
+->Before syncing changes, make sure you're on the correct branch:
+git branch 
+
+->If you're not on the desired branch (e.g., main), switch to it: 
+git checkout main
+
+->Fetch Updates From Remote repository without applying them to your working directory:
+git fetch 
+
+-> Compare Local and Remote Branches 
+git status 
+# If you see "Your branch is behind", it means there are new changes on GitHub that you haven’t pulled yet.
+#If you see "Your branch is ahead", it means you have local commits that haven’t been pushed yet
+  
+git pull origin main #If the remote branch has new changes, pull them to your local branch
+
+git push origin main #If your local branch has changes that need to be synced to GitHub, push them
+
+
+--> Automate the Process
+
+nano sync_project.sh
+
+->Add
+''' #!/bin/bash
+
+# Navigate to your project directory
+# cd /path/to/your/project
+cd /Users/saraabdelhafid/Desktop/Speechy_Source_Code/Source\ Code/Speechy_Robot_mac
+# Check current branch
+echo "Checking current branch..."
+git branch
+
+# Fetch updates from remote
+echo "Fetching updates from GitHub..."
+git fetch
+
+# Check status
+echo "Checking status..."
+git status
+
+# Pull changes if necessary
+echo "Pulling changes (if any)..."
+git pull origin main
+
+# Notify user
+echo "Your project is up to date!"
+'''
+chmod +x sync_project.sh #Make the Script Executable 
+./sync_project.sh #Run the Script
+cd /path/to/your/project && git pull origin main
+cd /Users/saraabdelhafid/Desktop/Speechy_Source_Code/Source\ Code/Speechy_Robot_mac && git pull origin main
+
+
