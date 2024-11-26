@@ -1,0 +1,59 @@
+
+\\ Download the Arduino CLI Binary
+curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+
+\\Verify Installation
+arduino-cli version
+
+nano ~/.bashrc
+export PATH="/home/pi/bin/:$PATH"
+export PATH="$PATH:/home/pi/bin/arduino-cli"
+ctrl+x
+source ~/.bashrc
+arduino-cli config init
+arduino-cli core update-index
+
+arduino-cli core install arduino:avr
+
+
+\\Upload Your .ino File
+\\Compile:
+arduino-cli compile --fqbn <board:architecture> <sketch-folder>
+arduino-cli compile --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
+
+
+\\Upload:
+arduino-cli upload -p /dev/ttyUSB0 --fqbn <board:architecture> <sketch-folder>
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
+
+\\List All Available Boards
+arduino-cli board listall
+
+\\Detect Connected Board
+arduino-cli board list
+
+
+\\to connect serial
+sudo apt-get install screen
+
+screen /dev/ttyACM0 9600
+ Ctrl + A
+
+
+\\ERROR
+ioctl("TIOCMGET"): Inappropriate ioctl for device
+stty: /dev/ttyACM0: Device or resource busy
+
+
+\\Close any active serial connections
+lsof /dev/ttyACM0
+\\This will list any processes that are using the serial port. If you find any, you can kill them using:
+COMMAND  PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+screen  1682   pi    5u   CHR  166,0      0t0  430 /dev/ttyACM0
+
+kill <PID>
+\\ to kill the process 
+kill 1682
+
+
+
