@@ -21,6 +21,7 @@ arduino-cli core install arduino:avr
 arduino-cli compile --fqbn <board:architecture> <sketch-folder>
 arduino-cli compile --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
 
+arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
 
 \\Upload:
 arduino-cli upload -p /dev/ttyUSB0 --fqbn <board:architecture> <sketch-folder>
