@@ -1,0 +1,33 @@
+either continent
+hey Google
+hey Google
+OK Google OK Google
+Linda
+how can you follow
+68 special
+Penn North Carolina ZIP codes
+look up the volume
+Minnesota Minnesota
+OK Google
+today's football is Connecticut
+I
+what does a lion say so if you don't follow
+Mexican
+can you please check it for Buy
+
+
+
+
+
+
+
+
+
+
+
+once you can ask
+with Pip install sound file then we can import it and then we can for example read a WAV file and this will get us a numpy array and the sample rate so we can print data to shape and then we can also very simply say SoundCloud right and use a different format here and if we run this and then have a look at the directory again and here we see we have the new file the next one is the
+hey Alexa
+
+
+
