@@ -19,6 +19,22 @@ screen /dev/ttyACM0 9600
 sudo apt update
 sudo apt install arduino
 
+\\Detect Connected Board
+arduino-cli board list
+
+arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
+screen /dev/ttyACM0 9600
+ Ctrl + A
+
+
+
+######Set_Up
+
+#install the env and libraries
+sudo apt update
+sudo apt install arduino
+
 \\ Download the Arduino CLI Binary
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
