@@ -2,8 +2,6 @@
 \\Detect Connected Board
 arduino-cli board list
 
-
-
 arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
 arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
 screen /dev/ttyACM0 9600
@@ -11,6 +9,11 @@ screen /dev/ttyACM0 9600
 
 
 
+######Set_Up
+
+#install the env and libraries
+sudo apt update
+sudo apt install arduino
 
 \\ Download the Arduino CLI Binary
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
@@ -28,10 +31,14 @@ arduino-cli core update-index
 
 arduino-cli core install arduino:avr
 
+#AFMotor lib
+wget https://github.com/adafruit/Adafruit-Motor-Shield-library/archive/refs/heads/master.zip -O Adafruit_Motor_Shield.zip
+unzip Adafruit_Motor_Shield.zip
+mkdir -p ~/Arduino/libraries
+mv Adafruit-Motor-Shield-library-master ~/Arduino/libraries/AFMotor
 
-#install the env and libraries
-sudo apt update
-sudo apt install arduino
+sudo chmod -R 755 ~/Arduino/libraries
+
 
 
 \\Upload Your .ino File
