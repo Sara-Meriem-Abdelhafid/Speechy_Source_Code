@@ -1,4 +1,17 @@
 
+\\Detect Connected Board
+arduino-cli board list
+
+
+
+arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
+screen /dev/ttyACM0 9600
+ Ctrl + A
+
+
+
+
 \\ Download the Arduino CLI Binary
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
@@ -16,6 +29,11 @@ arduino-cli core update-index
 arduino-cli core install arduino:avr
 
 
+#install the env and libraries
+sudo apt update
+sudo apt install arduino
+
+
 \\Upload Your .ino File
 \\Compile:
 arduino-cli compile --fqbn <board:architecture> <sketch-folder>
@@ -26,6 +44,8 @@ arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardwar
 \\Upload:
 arduino-cli upload -p /dev/ttyUSB0 --fqbn <board:architecture> <sketch-folder>
 arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
+
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
 
 \\List All Available Boards
 arduino-cli board listall
