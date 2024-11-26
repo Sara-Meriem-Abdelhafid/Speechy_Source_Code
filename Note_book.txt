@@ -15,6 +15,8 @@ pcm.capture {
     }
 }
 
+
+
 sudo nano /etc/asound.conf
 pcm.!default {
     type plug
@@ -62,6 +64,9 @@ git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.
 
 #Verify the Changes
 git remote -v
+
+
+
 
 #Large Files: If you have files larger than 100MB, Git will reject them. Use Git LFS for large files.
 git lfs install
