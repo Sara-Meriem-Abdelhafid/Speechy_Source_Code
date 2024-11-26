@@ -1,0 +1,316 @@
+'''
+
+Other Common Symbols in Git (VS Code)
+Here are some other signs you may see in VS Code's Source Control view and their meanings:
+
+A (Added): The file is newly added and staged for a commit.
+D (Deleted): The file has been deleted and is staged for a commit.
+U (Untracked): The file is new, untracked by Git, and not staged for a commit.
+R (Renamed): The file has been renamed and is staged for a commit.
+C (Copied): The file has been copied to a new location and is staged for a commit.
+? (Untracked): The file is not tracked by Git (similar to U).
+M (Modified): The file has been edited in your working directory but has not yet been staged for a commit.
+
+Raspberry Pi
+
+raspberrypi4.local
+
+ping raspberrypi4.local
+ssh -l pi raspberrypi4.local
+ssh pi@raspberrypi4.local 
+hostname: pi
+password: raspberry
+
+
+source env/bin/activate 
+cd /home/pi/Project/Main_Code 
+python main.py
+
+Network: MyNetwork
+Password : abdelhafid2023A@abd
+
+/Volumes/boot
+vim wpa__supplicant.conf  
+  
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=DZ
+
+network={
+    ssid="MyNetwork"
+    psk="abdelhafid2023A@abd"
+}
+
+
+touch ssh
+touch /Volumes/bootfs/ssh     
+
+sudo vim /etc/hosts 
+ssh-keygen -f ~/.ssh/known_hosts  
+vim wpa__supplicant.conf   
+cd /Volumes/bootfs   
+cd /Volumes/bootfs  
+
+
+
+github 
+
+
+git config --global user.email "sara23.abdelhafid@google.com"
+git config --global user.name "Sara-Meriem-Abdelhafid"
+Username for 'https://github.com': Sara-Meriem-Abdelhafid
+sarasara2020A#, sarasara2020A
+Password for 'https://Sara-Meriem-Abdelhafid@github.com':
+git config --global credential.helper store
+ssh-keygen -t ed25519 -C "sara23.abdelhafid@google.com"
+
+
+
+
+git remote -v
+rm -rf .git
+git branch  
+git restore --staged Software/IA
+
+
+
+
+git init
+git add Notes.txt 
+git commit -m "add Notes.txt "
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_From_Mac.git
+git push -u origin main
+git push -u origin master
+git push origin master --force
+
+git pull origin main  
+
+
+#Install Git LFS:
+sudo apt install git-lfs
+git lfs install
+
+
+Track the large file:
+git lfs track "text_to_speech/lid.176.bin"
+git lfs track "*.file_extension"
+git commit -m "Track large files with Git LFS"
+git rm --cached path/to/large-file
+
+#Add the .gitattributes file created by Git LFS:
+git add .gitattributes text_to_speech/lid.176.bin
+git commit -m "Remove large files"
+git push origin master
+
+
+
+
+
+git fetch origin
+git rebase origin/master
+git status 
+git rebase --continue
+git add Software/IA
+git status 
+
+
+git add -A
+git commit -m "Describe the changes you made here"
+
+nano .gitignore
+Software/IA/*.tmp
+Software/IA/*.bin
+git add .gitignore
+git commit -m "Update .gitignore to exclude unnecessary files"
+git status
+
+
+
+
+rm -rf .git
+git init
+git status
+git add Note_book.txt
+git commit -m "add Note_book.txt"
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_From_Mac.git
+git remote set-url origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_From_Mac.git
+
+git pull origin master  
+git push -u origin master
+git push origin master --force
+
+
+git remote -v 
+
+git branch  
+
+
+# Install Git LFS:
+sudo apt install git-lfs
+git lfs install
+
+Track the large file:
+git lfs track "text_to_speech/lid.176.bin"
+
+Add the .gitattributes file created by Git LFS:
+git add .gitattributes text_to_speech/lid.176.bin
+git commit -m "Track large file with Git LFS"
+
+Push your changes:
+git push origin master
+
+
+git add -A
+git commit -m "Describe the changes you made here"
+
+
+nano .gitignore
+Software/IA/*.tmp
+Software/IA/*.bin
+git add .gitignore
+git commit -m "Update .gitignore to exclude unnecessary files"
+git status
+
+git commit --amend --no-edit # After removing the secret, update the commit history to remove the secret completely:
+
+bash
+Copier le code
+
+
+
+'''
+fatal: refusing to merge unrelated histories:
+1-> You can force Git to merge unrelated histories by using the --allow-unrelated-histories flag.
+git pull origin master --allow-unrelated-histories
+
+2->
+git pull
+git merge
+
+->Set Upstream Branch  (Run the following command to link your local master branch to the remote master branch):
+git branch --set-upstream-to=origin/master master
+This tells Git that your local master branch should track the master branch on the origin remote.
+
+->Pull the Changes
+git pull
+or:
+git pull origin master --set-upstream
+git pull origin master --allow-unrelated-histories
+
+-> To change the Branch name from Master to main
+git branch
+git branch -M main
+git push --set-upstream origin main
+
+-> If you want to discard all changes to Software/IA in your working directory (reset it to its last committed state): git restore Software/IA
+-> If you want to unstage changes in Software/IA that were added to the staging area: git restore --staged Software/IA
+-> If you only want to see what changes have been made in Software/IA: git diff Software/IA
+
+
+
+
+
+echo "# test_repo" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_From_Mac.git
+git push -u origin main
+
+python3 -m pip install --upgrade pip  
+pip3 --version 
+pip --version 
+pip install git-filter-repo  
+git --version #git version 2.15.0
+
+-> Update Git version from 2.15 -> 2.22
+#for raspberry
+sudo apt update
+sudo apt install git
+git --version
+Install Git from Source (if required): sudo apt install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
+
+wget https://github.com/git/git/archive/refs/tags/v2.42.0.zip -O git.zip
+unzip git.zip
+cd git-2.42.0
+make configure
+./configure --prefix=/usr
+make all
+sudo make install
+git --version
+
+
+#for mac
+brew update 
+brew install git
+
+#for windows
+Download the Latest Git Installer: Go to git-scm.com and download the latest version.
+Install Git: Run the installer and follow the setup instructions.
+Verify the Installation: Open Command Prompt or Git Bash and run 
+git --version
+
+
+
+Rewrite history to remove sensitive data from Notes.txt:
+git filter-repo --path Notes.txt --replace-text <(echo "s/<your-secret>/REDACTED/") #needs Error: need git >= 2.22.0
+
+
+
+
+for the drive 
+
+list all
+sudo fdisk -l
+
+to repartition it 
+sudo fdisk /dev/sda 
+# /dev/sda geted from the filesystem disck list 
+
+create filesystem
+sudo mkfs -t ext4 /dev/sda1 # to create a file system in SSD_256_gb 
+sudo mkfs -t ext4 /dev/mmcblk0p1 # to create a file system in sdcard adata_32_gb
+
+
+lsblk  # show disks monted 
+sudo mkdir /mnt # to create file mnt to monte in it the drives
+
+sudo mkdir /mnt/hd1 # to create space to monte the hard drive 1 adata_32_gb
+sudo chown pi:pi /mnt/hd1 # to change who owns it user_name:pi and the root:/mnt/hd1
+sudo mkdir /mnt/hd2 #to create space to monte the hard drive 2 SSD_256_gb
+sudo chown pi:pi /mnt/hd2 # to change who owns it user_name:pi and the root:/mnt/hd2
+
+-> sudo blkid # to tell the lunix (Raspberry Pi 4) that it have 2 drives but one for boot and other for store 
+-> it shows:
+/dev/sdb2: LABEL="rootfs" UUID="a36be96c-66be-4487-a7a6-0481bca99d89" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="bb549dc2-02"
+/dev/sdb1: LABEL_FATBOOT="bootfs" LABEL="bootfs" UUID="5DC7-F115" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="bb549dc2-01"
+/dev/mmcblk0p1: UUID="55fd03b9-044a-4568-85aa-a951804e8dff" BLOCK_SIZE="4096" TYPE="ext4"
+/dev/sda1: UUID="8fc1b2f2-373d-40b8-8fd6-e2e36c171b35" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="84df0a2e-fe45-ba4b-b16e-00694c7e2842"
+
+bb549dc2
+-> sudo nano /etc/fstab # to tell the raspberry pi what file to mount to boot 
+-> it shows :
+proc            /proc           proc    defaults          0       0
+PARTUUID=bb549dc2-01  /boot/firmware  vfat    defaults          0       2
+PARTUUID=bb549dc2-02  /               ext4    defaults,noatime  0       1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+
+
+
+proc            /proc           proc    defaults          0       0
+PARTUUID=bb549dc2-01  /boot/firmware  vfat    defaults          0       2
+PARTUUID=bb549dc2-02  /               ext4    defaults,noatime  0       1
+UUID=55fd03b9-044a-4568-85aa-a951804e8dff /mnt/hd1 ext4 defaults 0 1
+UUID=8fc1b2f2-373d-40b8-8fd6-e2e36c171b35 /mnt/hd2 ext4 defaults 0 1
+# a swapfile is not a swap partition, no line here
+#   use  dphys-swapfile swap[on|off]  for that
+
+sudo unmount /mnt/hd1 # to unmount the hard disk
+sudo rmdir  /mnt/hd1 # to remove the hard disk
+
+
+
+
+'''
