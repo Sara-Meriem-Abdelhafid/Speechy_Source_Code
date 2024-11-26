@@ -1,3 +1,6 @@
+##### raspberrypi4 Audio setup
+###########################################################################################################################
+
 arecord -l
 
 nano ~/.asoundrc
@@ -17,13 +20,20 @@ pcm.!default {
     type plug
     slave.pcm "plughw:3,0"
 }
+###########################################################################################################################
 
 
 
 
 
 
-#…or create a new repository on the command line
+
+
+
+##### github setup
+###########################################################################################################################
+
+# create a new repository on the command line
 
 echo "# Speechy_windows" >> README.md
 git init
@@ -72,7 +82,6 @@ Get-ChildItem -Force
 Get-ChildItem -Force | Where-Object { $_.Name -eq '.gitignore' }
 
 
-
 #warning: in the working copy of 'Software/IA/text_to_speech/text_in_out/speech_to_text_output_file.txt', LF will be replaced by CRLF the next time Git touches it
 '''
 The warning you’re seeing is related to line endings in text files, which can differ between operating systems:
@@ -84,98 +93,11 @@ Git automatically handles line-ending conversions when files are checked out or 
 
 
 git commit -m "Update Note_book.txt"
+###########################################################################################################################
 
 
-arecord -l
-
-nano ~/.asoundrc
-
-pcm.capture {
-    type plug
-    slave {
-        pcm "hw:3,0"
-        rate 16000
-        format S16_LE
-        channels 1
-    }
-}
-
-sudo nano /etc/asound.conf
-pcm.!default {
-    type plug
-    slave.pcm "plughw:3,0"
-}
-
-
-
-
-
-
-#…or create a new repository on the command line
-
-echo "# Speechy_windows" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
-git push -u origin main
-
-#…or push an existing repository from the command line
-
-git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
-git branch -M main
-git push -u origin main
-
-
-#If the origin remote is incorrect or outdated, you can update it:
-git remote set-url origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
-
-
-#If you want to completely reset the origin, remove it and then add it again:
-git remote remove origin
-
-git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
-
-
-#Verify the Changes
-git remote -v
-
-#Large Files: If you have files larger than 100MB, Git will reject them. Use Git LFS for large files.
-git lfs install
-git lfs track "*.largefileextension"
-git init
-git add .
-git commit -m "Initial commit with folders"
-git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
-git push -u origin main
-git push -u origin master
-
-git rm -r --cached Software/IA/text_to_speech/fastText
-git commit -m "Update .gitignore and stop tracking fastText folder"
-git check-ignore -v Software/IA/text_to_speech/fastText
-
-#Correct Command in PowerShell
-Get-ChildItem -Force
-Get-ChildItem -Force | Where-Object { $_.Name -eq '.gitignore' }
-
-
-
-#warning: in the working copy of 'Software/IA/text_to_speech/text_in_out/speech_to_text_output_file.txt', LF will be replaced by CRLF the next time Git touches it
-'''
-The warning you’re seeing is related to line endings in text files, which can differ between operating systems:
-
-LF (Line Feed): Used by Unix-based systems like Linux and macOS.
-CRLF (Carriage Return + Line Feed): Used by Windows.
-Git automatically handles line-ending conversions when files are checked out or committed to ensure compatibility across different platforms.
-'''
-
-
-git commit -m "Update Note_book.txt"
-
-
-
-Raspberry Pi
+####Raspberry Pi Set_Up
+###########################################################################################################################
 
 raspberrypi4.local
 
@@ -186,11 +108,6 @@ ssh-keygen -R raspberrypi4.local # for windows
 ssh pi@raspberrypi4.local 
 hostname: pi
 password: raspberry
-
-
-source env/bin/activate 
-cd /home/pi/Project/Main_Code 
-python main.py
 
 Network: MyNetwork
 Password : abdelhafid2023A@abd
@@ -214,15 +131,18 @@ sudo vim /etc/hosts
 ssh-keygen -f ~/.ssh/known_hosts  
 vim wpa__supplicant.conf   
 cd /Volumes/bootfs   
-cd /Volumes/bootfs  
+###########################################################################################################################
 
+source env/bin/activate 
+cd /home/pi/Project/Main_Code 
+python main.py
 
+###########################################################################################################################
 
-github 
+#####github 
+###########################################################################################################################
+
 git init
-
-git config --global user.email "sara23.abdelhafid@google.com"
-git config --global user.name "Sara-Meriem-Abdelhafid"
 
 git remote -v 
 rm -rf .git
@@ -244,12 +164,7 @@ git rebase --continue
 git add Software/IA
 git status 
 
-
-
-
-'''
-
-Other Common Symbols in Git (VS Code)
+###########################################################################################################################
 Here are some other signs you may see in VS Code's Source Control view and their meanings:
 
 A (Added): The file is newly added and staged for a commit.
@@ -259,50 +174,8 @@ R (Renamed): The file has been renamed and is staged for a commit.
 C (Copied): The file has been copied to a new location and is staged for a commit.
 ? (Untracked): The file is not tracked by Git (similar to U).
 M (Modified): The file has been edited in your working directory but has not yet been staged for a commit.
+###########################################################################################################################
 
-Raspberry Pi
-
-raspberrypi4.local
-
-ping raspberrypi4.local
-ssh -l pi raspberrypi4.local
-ssh pi@raspberrypi4.local 
-hostname: pi
-password: raspberry
-
-
-source env/bin/activate 
-cd /home/pi/Project/Main_Code 
-python main.py
-
-Network: MyNetwork
-Password : abdelhafid2023A@abd
-
-/Volumes/boot
-vim wpa__supplicant.conf  
-  
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=DZ
-
-network={
-    ssid="MyNetwork"
-    psk="abdelhafid2023A@abd"
-}
-
-
-touch ssh
-touch /Volumes/bootfs/ssh     
-
-sudo vim /etc/hosts 
-ssh-keygen -f ~/.ssh/known_hosts  
-vim wpa__supplicant.conf   
-cd /Volumes/bootfs   
-cd /Volumes/bootfs  
-
-
-
-github 
 
 
 git config --global user.email "sara23.abdelhafid@google.com"
@@ -316,11 +189,13 @@ ssh-keygen -t ed25519 -C "sara23.abdelhafid@google.com"
 
 
 
+
+github 
+
 git remote -v
 rm -rf .git
 git branch  
 git restore --staged Software/IA
-
 
 
 
@@ -352,9 +227,6 @@ git commit -m "Remove large files"
 git push origin master
 
 
-
-
-
 git fetch origin
 git rebase origin/master
 git status 
@@ -372,7 +244,6 @@ Software/IA/*.bin
 git add .gitignore
 git commit -m "Update .gitignore to exclude unnecessary files"
 git status
-
 
 
 
@@ -509,7 +380,7 @@ git filter-repo --path Notes.txt --replace-text <(echo "s/<your-secret>/REDACTED
 
 
 for the drive 
-
+###########################################################################################################################
 list all
 sudo fdisk -l
 
@@ -559,7 +430,7 @@ UUID=8fc1b2f2-373d-40b8-8fd6-e2e36c171b35 /mnt/hd2 ext4 defaults 0 1
 sudo unmount /mnt/hd1 # to unmount the hard disk
 sudo rmdir  /mnt/hd1 # to remove the hard disk
 
-
+###########################################################################################################################
 
 
 '''

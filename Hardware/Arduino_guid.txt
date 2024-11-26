@@ -1,3 +1,23 @@
+#### Everytime
+###########################################################################################################################
+
+\\Detect Connected Board
+arduino-cli board list
+
+arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
+screen /dev/ttyACM0 9600
+ Ctrl + A
+###########################################################################################################################
+
+
+
+######Set_Up
+###########################################################################################################################
+
+#install the env and libraries
+sudo apt update
+sudo apt install arduino
 
 \\ Download the Arduino CLI Binary
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
@@ -15,16 +35,28 @@ arduino-cli core update-index
 
 arduino-cli core install arduino:avr
 
+#AFMotor lib
+wget https://github.com/adafruit/Adafruit-Motor-Shield-library/archive/refs/heads/master.zip -O Adafruit_Motor_Shield.zip
+unzip Adafruit_Motor_Shield.zip
+mkdir -p ~/Arduino/libraries
+mv Adafruit-Motor-Shield-library-master ~/Arduino/libraries/AFMotor
+
+sudo chmod -R 755 ~/Arduino/libraries
+
+
 
 \\Upload Your .ino File
 \\Compile:
 arduino-cli compile --fqbn <board:architecture> <sketch-folder>
 arduino-cli compile --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
 
+arduino-cli compile --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
 
 \\Upload:
 arduino-cli upload -p /dev/ttyUSB0 --fqbn <board:architecture> <sketch-folder>
 arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Arduino/sketch_Motor_driver/sketch_Motor_driver.ino
+
+arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:mega /home/pi/Speechy_Source_Code/Hardware/4_Motors_Drive/4_Motors_Drive.ino
 
 \\List All Available Boards
 arduino-cli board listall
@@ -35,15 +67,12 @@ arduino-cli board list
 
 \\to connect serial
 sudo apt-get install screen
-
-screen /dev/ttyACM0 9600
- Ctrl + A
+###########################################################################################################################
 
 
 \\ERROR
 ioctl("TIOCMGET"): Inappropriate ioctl for device
 stty: /dev/ttyACM0: Device or resource busy
-
 
 \\Close any active serial connections
 lsof /dev/ttyACM0
@@ -54,6 +83,5 @@ screen  1682   pi    5u   CHR  166,0      0t0  430 /dev/ttyACM0
 kill <PID>
 \\ to kill the process 
 kill 1682
-
 
 
