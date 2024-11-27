@@ -35,11 +35,8 @@ git branch -M main
 git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
 git push -u origin main
 
-#…or push an existing repository from the command line
 
-git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.git
-git branch -M main
-git push -u origin main
+
 
 
 #If the origin remote is incorrect or outdated, you can update it:
