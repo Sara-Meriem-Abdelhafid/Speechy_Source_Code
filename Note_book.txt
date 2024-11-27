@@ -55,7 +55,7 @@ git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.
 #Verify the Changes
 git remote -v
 
-
+https://github.dev/Sara-Meriem-Abdelhafid/Speechy_Source_Code/tree/main/Software/IA
 
 
 #Large Files: If you have files larger than 100MB, Git will reject them. Use Git LFS for large files.
