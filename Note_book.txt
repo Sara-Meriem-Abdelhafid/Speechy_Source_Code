@@ -15,8 +15,6 @@ pcm.capture {
     }
 }
 
-
-
 sudo nano /etc/asound.conf
 pcm.!default {
     type plug
@@ -64,9 +62,6 @@ git remote add origin https://github.com/Sara-Meriem-Abdelhafid/Speechy_windows.
 
 #Verify the Changes
 git remote -v
-
-
-
 
 #Large Files: If you have files larger than 100MB, Git will reject them. Use Git LFS for large files.
 git lfs install
@@ -186,7 +181,10 @@ M (Modified): The file has been edited in your working directory but has not yet
 git config --global user.email "sara23.abdelhafid@google.com"
 git config --global user.name "Sara-Meriem-Abdelhafid"
 Username for 'https://github.com': Sara-Meriem-Abdelhafid
-sarasara2020A#, sarasara2020A
+
+sarasara2024A#
+sarasara2020A#, 
+sarasara2020A
 Password for 'https://Sara-Meriem-Abdelhafid@github.com':
 git config --global credential.helper store
 ssh-keygen -t ed25519 -C "sara23.abdelhafid@google.com"
